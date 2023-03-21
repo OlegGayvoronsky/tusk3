@@ -1,0 +1,24 @@
+body {
+    background: #005ba7;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+
+header{    
+    letter-spacing: 3px;
+}
+h1{
+    font-size: 28px;
+}
+
+.kontent{
+    background: #cecece;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.form{
+    background: #cecece;
+    border-radius: 10px;
+    border: 1px solid black;
+}

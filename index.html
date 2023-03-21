@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Регистрация 
+        </title>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
+        <script defer src="./queries.js"></script>
+    </head>
+    <body>
+        <div class="container m-auto">
+            <header class="p-1 text-center">
+                <h1 class="mt-0 pt-3 pt-lg-5"></h1>
+            </header>
+        </div>
+        <div class="container">
+        <div class="d-flex flex-column-reverse flex-sm-column">
+        <div class="form my-2 text-center pb-2">
+        <form action="/" method="POST" action="">
+            <h2>Регистрация</h2>
+            <label>
+                Введите ваше имя:<br />
+                <input name="username"
+                required="required"
+                type="text"
+                placeholder="Имя">
+            </label> <br />
+            <label>
+                Введите ваш email:<br />
+                <input name="email"
+                  required="required"
+                  type="email"
+                  placeholder="Введите вашу электронную почту" />
+            </label><br />
+            <label>
+                Введите дату рождения:<br />
+                <input name="birthday"
+                 value="2000-01-01"
+                 required="required"
+                 type="date">
+            </label><br />
+            Укажите пол:<br />
+            <label>
+                <input type="radio" name="radio-group-1" value="gen1" checked="checked"/> Мужской </label>
+            <label>
+                <input type="radio" name="radio-group-1" value="gen2" /> Женский </label> <br />
+            Выберите количество конечностей: <br />
+            <label>
+                <input type="radio" name="radio-group-2" value="count1" checked="checked" /> 1
+            </label>
+            <label>
+                <input type="radio" name="radio-group-2" value="count2"/> 2
+            </label>
+            <label>
+                <input type="radio" name="radio-group-2" value="count3"/> 3
+            </label>
+            <label>
+                <input type="radio" name="radio-group-2" value="count4"/> 4
+            </label>
+            <label>
+                <input type="radio" name="radio-group-2" value="count5"/> 5+
+            </label><br />
+            <label>
+                Выберите сверхспособность: <br />
+                <select name="field-sup" multiple="multiple">
+                    <option value="num1" selected="selected"> Режим Бога</option>
+                    <option value="num2" > Умение летать</option>
+                    <option value="num3" > RSM</option>
+                </select>
+            </label> <br />
+            <label>
+                Напишите свою биографию: <br />
+                <textarea name="text" placeholder="Ваша биография" required="required"></textarea>
+            </label> <br />
+            <label>
+                Чекбокс: <br />
+                <input type="checkbox" name="chtck" required="required"> С контрактом ознакомлен(а)
+            </label> <br />
+            <input type="submit" value="Отправить"/>
+        </form>
+        </div>
+        </div>
+        </div>
+        <footer class="footer pl-5 pt-3 mw-100 mt-2">
+        </footer>
+    </body>
+</html>
