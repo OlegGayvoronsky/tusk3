@@ -2,34 +2,42 @@
 <html lang="en">
     <head>
         <title>
-            Регистрация 
+            The third task!
         </title>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta name="viewport" content="width=device-width initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="./style.css">
-        <script defer src="./queries.js"></script>
     </head>
     <body>
         <div class="container m-auto">
             <header class="p-1 text-center">
-                <h1 class="mt-0 pt-3 pt-lg-5"></h1>
+                <h1 class="mt-0 pt-3 pt-lg-5">Третье задание по Web-development</h1>
             </header>
         </div>
         <div class="container">
         <div class="d-flex flex-column-reverse flex-sm-column">
         <div class="form my-2 text-center pb-2">
-        <form action="/" method="POST" action="">
-            <h2>Регистрация</h2>
+        <form action="/" method="POST" id="myform">
+            <h2>Форма HTML</h2>
             <label>
-                Введите ваше имя:<br />
+                Введите имя пользователя:<br />
                 <input name="username"
                 required="required"
                 type="text"
-                placeholder="Имя">
+                placeholder="Имя пользователя:">
             </label> <br />
+
             <label>
-                Введите ваш email:<br />
+                Введите имя пользователя:<br />
+                <input name="name"
+                       required="required"
+                       type="text"
+                       placeholder="ФИО:">
+            </label> <br />
+
+            <label>
+                Текстовое поле email:<br />
                 <input name="email"
                   required="required"
                   type="email"
@@ -44,47 +52,70 @@
             </label><br />
             Укажите пол:<br />
             <label>
-                <input type="radio" name="radio-group-1" value="gen1" checked="checked"/> Мужской </label>
+                <input type="radio" name="gender" value="male" checked/> Мужской </label>
             <label>
-                <input type="radio" name="radio-group-1" value="gen2" /> Женский </label> <br />
-            Выберите количество конечностей: <br />
+                <input type="radio" name="gender" value="female" /> Женский </label> <br />
+
             <label>
-                <input type="radio" name="radio-group-2" value="count1" checked="checked" /> 1
-            </label>
-            <label>
-                <input type="radio" name="radio-group-2" value="count2"/> 2
-            </label>
-            <label>
-                <input type="radio" name="radio-group-2" value="count3"/> 3
-            </label>
-            <label>
-                <input type="radio" name="radio-group-2" value="count4"/> 4
-            </label>
-            <label>
-                <input type="radio" name="radio-group-2" value="count5"/> 5+
-            </label><br />
-            <label>
-                Выберите сверхспособность: <br />
-                <select name="field-sup" multiple="multiple">
-                    <option value="num1" selected="selected"> Режим Бога</option>
-                    <option value="num2" > Умение летать</option>
-                    <option value="num3" > RSM</option>
+                Выберите желаемую сверхспособность: <br />
+                <select name="superpower">
+                    <option value="immortality" selected="selected">Шваклбакл</option>
+                    <option value="noclipping">RSM</option>
+                    <option value="levitation">Левитация</option>
                 </select>
             </label> <br />
             <label>
-                Напишите свою биографию: <br />
-                <textarea name="text" placeholder="Ваша биография" required="required"></textarea>
+                Напишите свою историю: <br />
+                <textarea name="biography" placeholder="Расскажите о себе" required="required"></textarea>
             </label> <br />
             <label>
                 Чекбокс: <br />
                 <input type="checkbox" name="chtck" required="required"> С контрактом ознакомлен(а)
             </label> <br />
             <input type="submit" value="Отправить"/>
+            <div id="status"></div>
         </form>
         </div>
         </div>
         </div>
         <footer class="footer pl-5 pt-3 mw-100 mt-2">
+            <p>
+            </p>
         </footer>
+
+    <script>
+
+        const postUser = () => {
+            return (user) => {
+                const result = fetch(`http://u52836.kubsu-dev.ru/aweb3/api/user.php`, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(user),
+                })
+            }
+        }
+
+
+        const formEl = document.querySelector('#myform')
+        formEl.addEventListener('submit', (event) => {
+            event.preventDefault()
+
+            const data = new FormData(event.target)
+            const user = Object.fromEntries(data.entries())
+
+            const userPoster = postUser()
+
+            const statusEl = document.querySelector('#status')
+            userPoster(user).then((res) => {
+                statusEl.innerText = 'Успешно отправлено!'
+            }).catch((err) => {
+                statusEl.innerText = 'Произошла ошибка!'
+            })
+        })
+
+    </script>
     </body>
 </html>
