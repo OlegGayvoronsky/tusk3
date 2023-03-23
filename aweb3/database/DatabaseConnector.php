@@ -9,9 +9,9 @@ class DatabaseConnector {
     public function __construct() {
         $host = 'localhost';
         $port = '3306';
-        $db = 'u52831';
-        $user = 'u52831';
-        $password = '2026122';
+        $db = 'u52836';
+        $user = 'u52836';
+        $password = '3817111';
 
         try {
             $this->m_dbConnection = new PDO(
